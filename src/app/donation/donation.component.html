@@ -1,0 +1,45 @@
+<style>
+  table {
+  border-top: double;
+  border-bottom: double;
+  border-right: double;
+  border-left: double;
+}
+thead, tbody, tfoot {
+  border-top: double;
+  border-bottom: double
+}
+td {
+  border-right: double;
+  border-left: double
+}
+</style>
+
+<h1>Donation Details:</h1>
+  
+<div class="table-responsive-lg"> 
+  <table class="table table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Phone</th>
+        <th>Mail</th>
+        <th>Date</th>
+        <th>Payment Url</th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr *ngFor="let donation of donations">
+    
+        <td >{{donation.dname}}</td>
+        <td >{{donation.damount}}</td>
+        <td >{{donation.dphone}}</td>
+        <td >{{donation.dmail}}</td>
+        <td >{{donation.ddate}}</td>
+        <td ><a href="{{donation.dpaymentUrls}}">Payment Details</a></td>
+        
+    </tr>
+  </tbody>
+</table>
+</div> 

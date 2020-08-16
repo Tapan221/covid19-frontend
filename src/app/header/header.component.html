@@ -1,0 +1,25 @@
+<style> 
+  .navbar-nav { 
+      margin-right: auto; 
+  } 
+</style> 
+
+<header>
+    <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <a  routerLink="/home" class="navbar-brand">Helping Hands</a>
+      <li><a  routerLink="/home" class="nav-link">Home</a></li>
+      <li><a  routerLink="/donation" class="nav-link">Donation</a></li> 
+      <li><a  *ngIf="loginService.isUserLoggedIn()" routerLink="/contribution" class="nav-link">Contribution</a></li>
+      <li><a  *ngIf="loginService.isAdminUser()" routerLink="/saveDonation" class="nav-link">Save Donation</a></li>
+      <li><a  *ngIf="loginService.isAdminUser()" routerLink="/saveContribution" class="nav-link">Save Contribution</a></li>
+      <li><a  *ngIf="loginService.isUserLoggedIn()" routerLink="/personalContribution" class="nav-link">MyDetails</a></li>
+      <li><a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+    </ul> 
+    
+    <ul class="navbar-nav">   
+      <li><a  *ngIf="loginService.isUserLoggedIn()" class="nav-link">{{loginService.getUserMail()}}</a></li>    
+      <li><a  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li> 
+    </ul> 
+  </nav>   
+</header>

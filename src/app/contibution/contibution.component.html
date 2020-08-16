@@ -1,0 +1,39 @@
+<style>
+    table {
+    border-top: double;
+    border-bottom: double;
+    border-right: double;
+    border-left: double;
+  }
+  thead, tbody, tfoot {
+    border-top: double;
+    border-bottom: double
+  }
+  td {
+    border-right: double;
+    border-left: double
+  }
+  </style>
+<h1>Contribution Details:</h1>
+<div class="table-responsive-lg"> 
+  <table class="table table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Phone</th>
+        <th>Mail</th>
+        <th>Date</th>
+        <th>Payment Url</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let contributer of contributers">
+        <td >{{contributer.name}}</td>
+        <td >{{contributer.amount}}</td>
+        <td >{{contributer.phone}}</td>
+        <td >{{contributer.mail}}</td>
+        <td >{{contributer.date}}</td>
+        <td ><a href="{{contributer.paymentUrls}}">Payment Details</a></td>
+    </tr>
+</table>
+</div>

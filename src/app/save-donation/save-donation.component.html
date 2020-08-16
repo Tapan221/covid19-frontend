@@ -1,0 +1,68 @@
+
+
+<div class="container">
+    <h2>Enter Donation Details</h2>
+
+    <form #donationData="ngForm" (ngSubmit)="onSubmitDonationDetails(donationData.value)"> 
+        <div class="form-group">
+            <label >Name</label>
+            <input type="text" 
+            required
+            minlength="3" maxlength="20"
+            placeholder="Name"
+            #userName="ngModel"
+            class="form-control" 
+            name="dname" [(ngModel)]="dname">
+            <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+                Name is required.
+           </div>
+        </div>
+
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="text" 
+            class="form-control" 
+            required
+            placeholder="Amount"
+            #amountField="ngModel"
+            name="damount" [(ngModel)]="damount"> 
+            <div class="alert alert-danger" *ngIf="amountField.touched && !amountField.valid">
+                Amount is required.
+           </div>
+        </div>
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" 
+            class="form-control" 
+            required
+            placeholder="Phone"
+            #phoneField="ngModel"
+            name="dphone" [(ngModel)]="dphone"> 
+            <div class="alert alert-danger" *ngIf="phoneField.touched && !phoneField.valid">
+                Phone Number is required.
+           </div>
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="form-control" name="ddate" [(ngModel)]="ddate"> 
+        </div>
+   
+        <div class="form-group">
+            <label>Payment Url</label>
+            <input type="text" class="form-control" name="dpaymentUrls" [(ngModel)]="dpaymentUrls" >
+        </div>
+
+        <div class="form-group">
+            <label>Donation Reason</label>
+            <!--input type="textarea" class="form-control" name="dreason" [(ngModel)]="dreason" -->
+            <textarea rows="2" cols="50"class="form-control" name="dreason" [(ngModel)]="dreason"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button><br>
+        <label style="color: green;">{{successMessage}}</label>
+        <label style="color: red;">{{errorMessage}}</label>
+    </form>
+    
+</div>

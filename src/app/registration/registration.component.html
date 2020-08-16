@@ -1,0 +1,60 @@
+
+
+<div class="container">  
+  <div > 
+    <h1>User Registration</h1>
+  <form #RegistrationForm="ngForm" (ngSubmit)="registerUser()">
+    
+      <div class="form-group">  
+          <label for="userName">User Name</label>
+          <input required minlength="3" maxlength="10" [(ngModel)]="user.userName" name="userName" placeholder="Name" type="text" #userName="ngModel" class="form-control"  >
+          <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+               Name is required.
+          </div>
+      </div>
+
+      
+   
+
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+          required 
+          [(ngModel)]="user.email" 
+          name="email" 
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  
+          placeholder="Email" 
+          type="email" 
+          #userEmail="ngModel" 
+          class="form-control" >
+          <div class="alert alert-danger" *ngIf="userEmail.touched && !userEmail.valid">
+              <p *ngIf="userEmail.errors?.required">Email is a required field!</p>
+              <p *ngIf="userEmail.errors?.pattern">This is not a valid Email!!!</p>
+          </div>                
+      </div>
+      
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="user.password" required>
+      </div>
+  
+      <div class="form-group">
+          <label for="Password">Confirm Password</label>
+          <input type="password" class="form-control" id="password1" placeholder="Confirm Password" name="password1" [(ngModel)]="user.password1" required>
+      </div>
+  
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit"  class="btn btn-primary">Register</button>
+      <!--small (click)="gotoRegistraionPage()" class="float-right"><a href="">New User? click here</a></small-->
+     <small [routerLink]="['/login']" style="margin-left: 100px; color:brown;font-weight: 500;">Existing  User? click here</small><br><br>
+
+     <label style="color: green; font-weight: bold;">{{message}}</label>
+     <label style="color: red; font-weight: bold;">{{errorMessage}}</label>
+    </form>
+    
+    
+  </div>
+</div>
